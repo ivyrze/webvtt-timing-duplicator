@@ -1,6 +1,5 @@
 $(document).ready(function () {
     $("#run").click(run);
-    run();
 });
 
 function run() {
