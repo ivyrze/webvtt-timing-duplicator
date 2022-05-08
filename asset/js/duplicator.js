@@ -77,6 +77,11 @@ function group(cues) {
         }
         tempGroup.push(cue);
     });
+    
+    if (tempGroup.length != 0) {
+        groups.push(tempGroup);
+    }
+    
     return groups;
 }
 
