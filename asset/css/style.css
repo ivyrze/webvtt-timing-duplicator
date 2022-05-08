@@ -1,0 +1,16 @@
+form {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 10px;
+}
+
+textarea {
+    width: 100%;
+    height: calc(100vh - 100px);
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-minify": "^3.1.0"
+  },
+  "dependencies": {
+    "jquery": "^3.6.0",
+    "webvtt-parser": "^2.1.2"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "develop": "gulp develop"
+  }
+}

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>WebVTT Timing Duplicator</title>
+        <link rel="stylesheet" href="/asset/css/style.css">
+        <script src="/asset/js/jquery.min.js"></script>
+        <script src="/asset/js/parser.min.js"></script>
+        <script src="/asset/js/duplicator.js"></script>
+    </head>
+    
+    <body>
+        <form>
+            <div class="col">
+                <label for="timings">Timed VTT</label>
+                <textarea name="timings" id="timings"></textarea>
+            </div>
+            
+            <div class="col">
+                <label for="untimed">Untimed Script</label>
+                <textarea name="untimed" id="untimed"></textarea>
+            </div>
+            
+            <div class="col">
+                <label for="output">Output VTT</label>
+                <textarea name="output" id="output"></textarea>
+            </div>
+        </form>
+        
+        <button id="run" type="button">Run</button>
+    </body>
+</html>
