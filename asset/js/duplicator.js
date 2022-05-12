@@ -4,9 +4,10 @@ $(document).ready(function () {
             const readTimings = read($("#timings")[0].files[0]);
             const readUntimed = read($("#untimed")[0].files[0]);
             Promise.all([ readTimings, readUntimed ]).then(function (files) {
-                $("#output").val(run(files[0], files[1]));
-            }).catch(function () {
-                console.error("File read error");
+                const output = run(files[0], files[1]);
+                if (output) { $("#output").val(output); }
+            }).catch(function (event) {
+                error("File read error", event);
             });
         }
     });
@@ -14,6 +15,7 @@ $(document).ready(function () {
     $("form input").on('change', function () {
         ($("form")[0].checkValidity()) ?
             $("#run").removeAttr("disabled") : $("#run").attr("disabled", "");
+        $("#error-container").hide();
     })
 });
 
@@ -38,8 +40,8 @@ function run(timings, untimed) {
     const parsed = parser.parse(timings);
     
     if (parsed.errors.length > 0) {
-        console.error("Parser error", parsed.errors);
-        return;
+        error("Parser error", parsed.errors);
+        return false;
     }
     
     var newCues = parsed.cues.map((cue) => cue);
@@ -55,8 +57,8 @@ function run(timings, untimed) {
     
     // Input checking
     if (groupedCues.length != groupedLines.length) {
-        console.error("Mismatched inputs", groupedCues, groupedLines);
-        return;
+        error("Mismatched inputs", groupedCues, groupedLines);
+        return false;
     }
     
     // Mesh the timings and untimed script
@@ -133,4 +135,10 @@ function groupWords(group) {
     });
     
     return combined;
+}
+
+function error(message, ...diagnostics) {
+    $("#error-container").show();
+    $("#error-container p").text(message);
+    console.error(message, diagnostics);
 }

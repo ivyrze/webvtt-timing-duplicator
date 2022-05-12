@@ -5,10 +5,7 @@ input {
     margin: 0;
 }
 
-h1,
-h2,
-h3,
-h4 {
+h1 {
     font-family: "Montserrat", sans-serif;
 }
 
@@ -77,6 +74,22 @@ form {
     border: 2px dashed #ccc;
     border-radius: 10px;
     padding: 16px;
+}
+
+#error-container {
+    background-color: #ffd4d4;
+    border-color: #ff8585;
+    border-style: solid;
+    margin-bottom: 22px;
+}
+
+#error-container h2 {
+    font-size: 1rem;
+    margin: 0 0 10px 0;
+}
+
+#error-container p {
+    margin: 0;
 }
 
 footer {
