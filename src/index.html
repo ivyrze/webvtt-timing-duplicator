@@ -3,31 +3,41 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
         <title>WebVTT Timing Duplicator</title>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Space+Mono&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/asset/css/style.css">
+        
         <script src="/asset/js/jquery.min.js"></script>
         <script src="/asset/js/parser.min.js"></script>
         <script src="/asset/js/duplicator.js"></script>
     </head>
     
     <body>
-        <form>
-            <div class="col">
-                <label for="timings">Timed VTT</label>
-                <textarea name="timings" id="timings"></textarea>
-            </div>
+        <div class="container">
+            <h1>WebVTT Timing Duplicator</h1>
             
-            <div class="col">
-                <label for="untimed">Untimed Script</label>
-                <textarea name="untimed" id="untimed"></textarea>
-            </div>
-            
-            <div class="col">
-                <label for="output">Output VTT</label>
-                <textarea name="output" id="output"></textarea>
-            </div>
-        </form>
-        
-        <button id="run" type="button">Run</button>
+            <form>
+                <div class="step-container">
+                    <label for="timings">Timed VTT</label>
+                    <input type="file" name="timings" id="timings" accept=".vtt" required>
+                </div>
+                
+                <div class="step-container">
+                    <label for="untimed">Untimed Script</label>
+                    <input type="file" name="untimed" id="untimed" accept=".txt" required>
+                </div>
+                
+                <div class="step-container">
+                    <label for="output">Output VTT</label>
+                    <textarea name="output" id="output"></textarea>
+                </div>
+                
+                <button id="run" type="button" disabled>Run</button>
+            </form>
+        </div>
     </body>
 </html>
