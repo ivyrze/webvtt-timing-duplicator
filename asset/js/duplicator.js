@@ -5,7 +5,13 @@ $(document).ready(function () {
             const readUntimed = read($("#untimed")[0].files[0]);
             Promise.all([ readTimings, readUntimed ]).then(function (files) {
                 const output = run(files[0], files[1]);
-                if (output) { $("#output").val(output); }
+                if (output) {
+                    $("#download").attr("href",
+                        "data:text/vtt;charset=utf-8," + encodeURIComponent(output));
+                    $("#output").val(output);
+                    $("#step-final").show();
+                    $("#run").hide();
+                }
             }).catch(function (event) {
                 error("File read error", event);
             });
@@ -15,8 +21,17 @@ $(document).ready(function () {
     $("form input").on('change', function () {
         ($("form")[0].checkValidity()) ?
             $("#run").removeAttr("disabled") : $("#run").attr("disabled", "");
-        $("#error-container").hide();
-    })
+        $("#error-container, #step-final").hide();
+        $("#run").show();
+    });
+    
+    $("#view-source").click(function () {
+        $("#source-modal")[0].showModal();
+    });
+    
+    $("#close-modal").click(function () {
+        $("#source-modal")[0].close();
+    });
 });
 
 function read(file) {

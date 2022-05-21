@@ -13,6 +13,10 @@ h1 {
     font-size: 28px;
 }
 
+a[href] {
+    text-decoration: none;
+}
+
 textarea {
     font-family: "Space Mono", monospace;
     width: 100%;
@@ -26,30 +30,50 @@ input {
 }
 
 button {
-    width: 100%;
-    height: 3em;
     appearance: none;
     border: none;
-    border-radius: 10px;
-    color: #fff;
-    background: #2e4dee;
     font-weight: bold;
 }
 
 button:not([disabled]) {
     cursor: pointer;
+}
+
+button:not([disabled]),
+#step-final a {
     opacity: 0.9;
     transition: 0.3s opacity ease;
 }
 
-button:hover {
+button:hover,
+#step-final a:hover {
     opacity: 1;
 }
 
 button[disabled] {
     cursor: not-allowed;
+}
+
+button.button-pill {
+    width: 100%;
+    height: 3em;
+    border-radius: 10px;
+    color: #fff;
+    background: #2e4dee;
+}
+
+button.button-pill[disabled] {
     color: #eee;
     background: #999;
+}
+
+button.button-inline {
+    color: #2e4dee;
+    background: none;
+}
+
+button.button-inline[disabled] {
+    color: #999;
 }
 
 label {
@@ -64,6 +88,20 @@ form {
     gap: 14px;
 }
 
+dialog {
+    position: fixed;
+    inset: 0;
+    width: 400px;
+    padding: 16px;
+    border-radius: 10px;
+}
+
+a > .fa-solid,
+button.button-pill > .fa-solid,
+button.button-inline > .fa-solid {
+    margin-right: 6px;
+}
+
 .container {
     max-width: 500px;
     margin-inline: auto;
@@ -74,6 +112,14 @@ form {
     border: 2px dashed #ccc;
     border-radius: 10px;
     padding: 16px;
+}
+
+.step-container#step-final {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    border-style: solid;
+    border-color: #5069f1;
 }
 
 #error-container {
@@ -92,6 +138,30 @@ form {
     margin: 0;
 }
 
+#download {
+    color: #2e4dee;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 3px;
+}
+
+.modal-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 10px;
+}
+
+.modal-controls label {
+    margin-bottom: 0;
+}
+
+.modal-controls #close-modal {
+    background: none;
+}
+
 footer {
     margin-block: 32px;
     font-size: 14px;
@@ -104,5 +174,4 @@ footer p {
 
 footer a {
     color: #000;
-    text-decoration: none;
 }

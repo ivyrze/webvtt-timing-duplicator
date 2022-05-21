@@ -9,6 +9,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Space+Mono&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="/asset/css/fontawesome.min.css">
         <link rel="stylesheet" href="/asset/css/style.css">
         
         <script src="/asset/js/jquery.min.js"></script>
@@ -36,13 +37,21 @@
                     <input type="file" name="untimed" id="untimed" accept=".txt" required>
                 </div>
                 
-                <div class="step-container">
-                    <label for="output">Output VTT</label>
-                    <textarea name="output" id="output"></textarea>
+                <div class="step-container" id="step-final" style="display: none">
+                    <a id="download" download="merged.vtt"><span class="fa-solid fa-download" aria-hidden="true"></span>Download</a>
+                    <button id="view-source" type="button" class="button-inline"><span class="fa-solid fa-code" aria-hidden="true"></span>View Source</button>
                 </div>
                 
-                <button id="run" type="button" disabled>Run</button>
+                <button id="run" type="button" class="button-pill" disabled>Run</button>
             </form>
+            
+            <dialog id="source-modal">
+                <div class="modal-controls">
+                    <label for="output">Output VTT</label>
+                    <button id="close-modal" aria-label="Close"><span class="fa-solid fa-close"></span></button>
+                </div>
+                <textarea name="output" id="output"></textarea>
+            </dialog>
             
             <footer>
                 <p>An <a href="https://github.com/ivyrze/webvtt-timing-duplicator" target="_blank">open-source project</a> by Ivy Rose, Archivo de Respuestas Emergencias de Puerto Rico.</p>
