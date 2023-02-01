@@ -1,3 +1,7 @@
+html {
+    color-scheme: dark light;
+}
+
 html,
 body,
 input {
@@ -173,5 +177,21 @@ footer p {
 }
 
 footer a {
-    color: #000;
+    color: inherit;
+}
+
+@media (prefers-color-scheme: dark) {
+    button.button-pill[disabled] {
+        color: #777;
+        background: #222;
+    }
+    
+    .step-container {
+        border-color: #555;
+    }
+    
+    .error-container {
+        background-color: #662525;
+        border-color: #a64040;
+    }
 }
