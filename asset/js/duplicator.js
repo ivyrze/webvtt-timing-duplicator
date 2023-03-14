@@ -87,7 +87,7 @@ function run(timings, untimed) {
             const ratio = words(cue.text).length / groupWordCount;
             const wordCount = Math.round(ratio * combinedLine.length);
             
-            const partial = combinedLine.slice(wordIndex, wordIndex + wordCount).join(' ');
+            const partial = combinedLine.slice(wordIndex, wordIndex + wordCount).join(' ').trim();
             newCues[flatIndex].text = newCues[flatIndex].tree.children[0].value = partial;
             
             flatIndex++;
