@@ -101,7 +101,7 @@ function run(timings, untimed) {
 }
 
 function separate(line) {
-    const parts = line.match(/^(\w{1,30}):\s?(.+)/mu);
+    const parts = line.match(/^([a-zA-Z0-9À-ž]{1,30}):\s?(.+)/mu);
     return (parts) ? { speaker: parts[1].trim(), text: parts[2].trim() } :
         { text: line.trim() };
 }
