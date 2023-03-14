@@ -102,7 +102,8 @@ function run(timings, untimed) {
 
 function separate(line) {
     const parts = line.match(/^(\w{1,30}):\s?(.+)/mu);
-    return (parts) ? { speaker: parts[1].trim(), text: parts[2].trim() } : false;
+    return (parts) ? { speaker: parts[1].trim(), text: parts[2].trim() } :
+        { text: line.trim() };
 }
 
 function group(cues) {
@@ -111,7 +112,7 @@ function group(cues) {
     var currentSpeaker;
     cues.forEach(function (cue, index) {
         const parts = separate(cue.text ?? cue);
-        if (parts && parts.speaker != currentSpeaker) {
+        if (parts.speaker && parts.speaker != currentSpeaker) {
             // Speaker specified and changed
             if (index != 0) {
                 groups.push(tempGroup);
