@@ -190,7 +190,7 @@ footer a {
         border-color: #555;
     }
     
-    .error-container {
+    #error-container {
         background-color: #662525;
         border-color: #a64040;
     }
